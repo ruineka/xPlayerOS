@@ -22,7 +22,7 @@ if you get a failed update install error I'm not entirely sure what the fix is b
 For any error that comes up simply rerunning the `gamescope -e -f -- steam -gamepadui -steamos3 -steampal -steamdeck` command a few times seems to sort things out.
 
 Known issues:\
-The touchscreen is input is not flipped to match the display yet\
+The touchscreen input is not flipped to match the display yet\
 The SteamOSUI_Enable/Disable scripts need to be updated, I'll get to this later to make a cool transistion similar to how the Steam Deck does it.
 
 What works:\
