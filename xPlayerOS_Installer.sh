@@ -20,18 +20,18 @@ INTEL=$(lspci -v | grep VGA | grep -E 'INTEL')
 
 
 if [[ ${OPTION} != "deckui" ]]; then
-zenity --error --text="We are running without the deckui argument, this means we are getting drivers and patched mesa, but not the deck UI\!" --title="Alert\!"
+zenity --error --text="We are running without the deckui argument, this means we are getting the gamepad driver only\!" --title="Alert\!"
 fi
 
 if [[ ${OPTION2} == "gamescope" ]]; then
-zenity --error --text="Installing gamescope, this is known to cause touchscreen issues\!" --title="Alert\!"
+zenity --error --text="Installing gamescope, touchscreen input will be upside down!" --title="Alert\!"
 sudo apt update
 git clone https://github.com/ruineka/xplayeros.git
 sudo cp ~/xplayeros/jupiter-biosupdate /usr/bin
 sudo chmod 777 /usr/bin/jupiter-biosupdate
 sudo cp ~/xplayeros/steamos-update /usr/bin
 sudo chmod 777 /usr/bin/steamos-update
-sudo cp ~/xplayeros/steamos-session-select
+sudo cp ~/xplayeros/steamos-session-select /usr/bin
 sudo chmod 777 /usr/bin/steamos-session-select
 sudo apt install libx11-dev libwayland-dev libxkbcommon-dev cmake meson libxdamage-dev libxrender-dev libxtst-dev libvulkan-dev libxcb-xinput-dev libxcb-composite0-dev libxcb-icccm4-dev libxcb-res0-dev libxcb-util-dev libxcomposite-dev libxxf86vm-dev libxres-dev libdrm-dev wayland-protocols libcap-dev libsdl2-dev libgbm-dev libpixman-1-dev libinput-dev libseat-dev seatd libsystemd-dev glslang-tools
 
@@ -61,7 +61,7 @@ sudo apt install software-properties-common
 sudo apt update
 sudo apt install steam
 
-zenity --error --text="Login to steam and close the client\!" --title="Alert\!"
+zenity --error --text="Login to steam and enable steamplay for all titles and close the client\!" --title="Alert\!"
 steam
 #lets grab that beta file causing issues for Steam UI
 curl -o ~/.steam/steam/package/beta https://pastebin.com/raw/EZw2QxGf
