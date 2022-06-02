@@ -29,3 +29,5 @@ What works:\
 Switch to Desktop mode\
 Steams keyboard with gamepad support, on the Intel OneXplayer (non mini) hold the left orange button for a second and then press X\
 Playing games.
+
+Youtube video showing this working: https://www.youtube.com/watch?v=aRANWssBGsM
