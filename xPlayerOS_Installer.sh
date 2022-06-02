@@ -18,9 +18,6 @@ DECK_CONF="${HOME}/.config/environment.d/deckui.conf"
 AMD=$(lspci -v | grep VGA | grep -E 'AMD|ATI')
 INTEL=$(lspci -v | grep VGA | grep -E 'INTEL')
 
-# Adjustable
-RES_H="1080"
-RES_W="1920"
 
 if [[ ${OPTION} != "deckui" ]]; then
 zenity --error --text="We are running without the deckui argument, this means we are getting drivers and patched mesa, but not the deck UI\!" --title="Alert\!"
@@ -28,9 +25,24 @@ fi
 
 if [[ ${OPTION2} == "gamescope" ]]; then
 zenity --error --text="Installing gamescope, this is known to cause touchscreen issues\!" --title="Alert\!"
-sudo add-apt-repository ppa:samoilov-lex/gamescope
-sudo apt-get update
-sudo apt install gamescope
+sudo apt update
+git clone https://github.com/ruineka/xplayeros.git
+sudo cp ~/xplayeros/jupiter-biosupdate /usr/bin
+sudo chmod 777 /usr/bin/jupiter-biosupdate
+sudo cp ~/xplayeros/steamos-update /usr/bin
+sudo chmod 777 /usr/bin/steamos-update
+sudo cp ~/xplayeros/steamos-session-select
+sudo chmod 777 /usr/bin/steamos-session-select
+sudo apt install libx11-dev libwayland-dev libxkbcommon-dev cmake meson libxdamage-dev libxrender-dev libxtst-dev libvulkan-dev libxcb-xinput-dev libxcb-composite0-dev libxcb-icccm4-dev libxcb-res0-dev libxcb-util-dev libxcomposite-dev libxxf86vm-dev libxres-dev libdrm-dev wayland-protocols libcap-dev libsdl2-dev libgbm-dev libpixman-1-dev libinput-dev libseat-dev seatd libsystemd-dev glslang-tools
+
+git clone -b gamescope-onexplayer-intel https://github.com/ruineka/gamescope-onexplayer.git
+cd gamescope-onexplayer
+meson build/
+ninja -C build/
+sudo meson install -C build/ --skip-subprojects
+sudo cp /usr/local/bin/gamescope /usr/bin/
+cd ..
+
 fi
 
 if [[ ${OPTION3} == "mangohud" ]]; then
@@ -39,8 +51,6 @@ sudo add-apt-repository ppa:flexiondotorg/mangohud
 sudo apt-get update
 sudo apt install mangohud
 fi
-
-
 
 #lets enable wayland!
 sudo curl -o /etc/gdm3/custom.conf https://pastebin.com/raw/3JhvVX7i
@@ -56,31 +66,8 @@ steam
 #lets grab that beta file causing issues for Steam UI
 curl -o ~/.steam/steam/package/beta https://pastebin.com/raw/EZw2QxGf
 
-#We are going to begin getting the dependencies to start building the OneXPlayer Steam Deck
-sudo add-apt-repository ppa:savoury1/llvm-defaults-13
-sudo apt-get update
-sudo apt install llvm
-
-# experiment with git version later git clone https://gitlab.freedesktop.org/mesa/mesa.git
-curl -o mesa.tar.xz https://archive.mesa3d.org//mesa-21.3.6.tar.xz
-tar -xf mesa.tar.xz
-cd ~/mesa-21.3.6
-curl -o gpufix.patch https://pastebin.com/raw/MBMusWre
-patch -p1 < gpufix.patch
-sudo apt-get build-dep mesa
-
-
-#attempt to compile mesa
-meson builddir/
-ninja -C builddir/
-sudo ninja -C builddir/ install
-sudo cp ~/mesa-21.3.6/builddir/src/intel/vulkan/intel_icd.x86_64.json /usr/share/vulkan/icd.d
-
 #Installing Gamepad
-sudo git clone https://github.com/ruineka/xpad.git /usr/src/xpad-0.4
-sudo dkms install -m xpad -v 0.4
 sudo curl -o /etc/udev/rules.d/99-oxpgamepad.rules https://pastebin.com/raw/WuB44000
-sudo udevadm control --reload-rules && udevadm trigger
 
 if [[ -z ${OPTION} ]]; then
     echo "Script ran without using install argument, Steam Deck UI not installed"
