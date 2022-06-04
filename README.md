@@ -26,8 +26,10 @@ If you press A fast skipping through the configuration settings you'll be able t
 For any error that comes up simply rerunning the `gamescope -e -f -- steam -gamepadui -steamos3 -steampal -steamdeck` command a few times seems to sort things out.
 
 Known issues:\
-The touchscreen input is not flipped to match the display yet\
-The SteamOSUI_Enable/Disable scripts need to be updated, I'll get to this later to make a cool transistion similar to how the Steam Deck does it.
+  The touchscreen input is not flipped to match the display yet.\
+  Initial setup is very buggy, but once you get it to work you'll be fine after.\
+  The OneXPlayer Intel Mini and AMD mini handhelds haven't been tested so issues are very possible. I don't have these handhelds to test against to make     fixes.
+
 
 What works:\
 Switch to Desktop mode\
