@@ -133,6 +133,10 @@ as an option at the login screen.
 #lets enable wayland!
 sudo cp ~/xplayeros/rootfs/etc/gdm3/custom.conf /etc/gdm3
 
+#fixing network permissions issue for Steam
+
+sudo cp ~/xplayeros/rootfs/etc/polkit-1/localauthority/50-local.d/10-network-manager.pkla /etc/polkit-1/localauthority/50-local.d
+
 #Installing Gamepad
 echo "
 ==================================================
