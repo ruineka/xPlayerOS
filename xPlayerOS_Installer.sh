@@ -115,7 +115,15 @@ sudo cp ~/xplayeros/rootfs/usr/lib/hwsupport/sdcard-mount.sh /usr/lib/hwsupport
 #lets grab that beta file causing issues for Steam UI
 cp ~/xplayeros/beta ~/.steam/steam/package/beta 
 
+#adding desktop files
 
+cp ~/xplayeros/Switch\ To\ Gamemode.desktop ~/Desktop
+gio set ~/Desktop/Switch\ To\ Gamemode.desktop metadata::trusted true
+chmod a+x ~/Desktop/Switch\ To\ Gamemode.desktop
+
+cp ~/xplayeros/Launch\ DeckUI.desktop ~/Desktop
+gio set ~/Desktop/Launch\ DeckUI.desktop metadata::trusted true
+chmod a+x ~/Desktop/Launch\ DeckUI.desktop
 
 echo "
 ==================================================
@@ -131,8 +139,8 @@ echo "
 Installing the Gamepad Udev
 =================================================="
 echo "Installing Gamepad Udev..." ; sleep 1
-cp ~/xplayeros/rootfs/etc/udev/rules.d/00-oxpgamepad.rules /etc/udev/rules.d/
-sudo curl -o /etc/udev/rules.d/99-oxpgamepad.rules https://pastebin.com/raw/WuB44000
+sudo cp ~/xplayeros/rootfs/etc/udev/rules.d/99-oxpgamepad.rules /etc/udev/rules.d/
+
 
 echo "Done!"
 
