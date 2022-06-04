@@ -1,33 +1,34 @@
 # xPlayerOS
-Pop OS 22.04 LTS OneXplayer Install Script
+Pop OS 21.10 OneXplayer Install Script
 
-Welcome to the xPlayerOS script created for fun that is tested to be working on Pop OS 22.04 LTS.
+Welcome to the xPlayerOS script created for fun that is tested to be working on Pop OS 21.10.
 
 Install instructions
 
-`git clone https://github.com/ruineka/xplayeros.git`\
-`cd xplayeros`\
-`./xPlayerOS_Installer.sh deckui gamescope`\
-The possible parameters for this script are `deckui` `gamescope` and `mangohud`
+Place the 3 files in the archive to your desktop and open up the terminal. You may want to use a keyboard/mouse for this part.
+Drag and drop the xPlayerOS_Installer-0.2.sh script to the terminal and add lines depending on what you want. It's important to run this from a fresh terminal not navigated to any folders.
 
-After rebooting open the terminal with `Super + T`\
-\
-type in `gamescope -e -f -- steam -gamepadui -steamos3 -steampal -steamdeck`
+Option 1: Add no arguments, this will only install the gamepad and patched Mesa and it's dependencies.
+
+Option 2: Add deckui to the end of the line to install the Steam Deck UI
+
+Option 3: add gamescope to install gamescope
+
+Option 4: add mangohud to install mangohud
+
+Example: '/home/ruineka/Desktop/xPlayerOS_Installer-0.2.sh' deckui gamescope mangohud
+
+This line would install all three options.
 
 
-if you get a bad descriptor error attempt again, for some reason I have issues with this once in a while and with a little play it will eventually work.\
-\
-if you get a failed update install error I'm not entirely sure what the fix is because it seems to be random, but on a fresh install of Pop 22.04 running my script I rebooted and changed the owner and group of files `/usr/bin/steamos-update` and `/usr/bin/jupiter-biosupdate` to `nobody` and `nogroup` and when I launched steam using the gamescope command above it worked as expected. If anyone has any idea as to the cause of this let me know!\
-\
-For any error that comes up simply rerunning the `gamescope -e -f -- steam -gamepadui -steamos3 -steampal -steamdeck` command a few times seems to sort things out.
+The SteamOSUI_ENABLE-v0.2.sh script has an option "exclusive" to attempt to run SteamOS exclusively in gamescope, this causes touchscreen issues for me and I'm not able to interact with my desktop.
+I recommend not using the exclusive argument unless you are a tinker who wants to help figure it out.
 
-Known issues:\
-The touchscreen input is not flipped to match the display yet\
-The SteamOSUI_Enable/Disable scripts need to be updated, I'll get to this later to make a cool transistion similar to how the Steam Deck does it.
+Notes: This script enabled Wayland which is disabled by default, to start the Wayland session log out and go to the gear on the bottom right of the screen. You should see Pop on Wayland, it's necessary to
+get rid of screen tearing for me and Gnome with the current updates seems to lock up at random. If you use the Deck UI then this doesn't concern you and Wayland is the way to go.
 
-What works:\
-Switch to Desktop mode\
-Steams keyboard with gamepad support, on the Intel OneXplayer (non mini) hold the left orange button for a second and then press X\
-Playing games.
+By default you'll be on X11 which the only resolution available is 1600x2560, this is an odd bug that I've had to use xrandr to work around, but with the screen tearing I don't bother.
 
-Youtube video showing this working: https://www.youtube.com/watch?v=aRANWssBGsM
+With Wayland you'll want to work around a display bug by going to 800x1280 (The display will be a small box in the corner, and touch navigation will be off so use your keyboard/mouse mode to click confirm and then switch to 900x1440 which will be displayed correctly for the best experience overall. Trying to go to 900x1440 before 800x1280 will result in it saying that the hardware isn't compatible or something.
+
+I've read reports of some users with the OneXPlayer not having screen tearing with X11 so if this is the case I'll add xrandr commands to the install script if it is requested by the community.
