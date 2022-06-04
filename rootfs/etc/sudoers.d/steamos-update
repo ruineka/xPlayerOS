@@ -1,1 +1,1 @@
-ALL ALL=(ALL) NOPASSWD: /usr/share/steam /usr/bin/steamos-update
+ALL ALL=(ALL) NOPASSWD: /usr/games/steam /usr/bin/steamos-update
