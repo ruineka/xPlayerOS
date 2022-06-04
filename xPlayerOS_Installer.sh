@@ -44,13 +44,6 @@ rm mangohud-0.6.6.1.r113.g316914d-1-x86_64.pkg.tar.xz
 rm lib32-mangohud-0.6.6.1.r113.g316914d-1-x86_64.pkg.tar.xz
 
 
-
-echo "
-================================================
-Installing mangohud files from Steam Deck repo
-================================================"
-
-sudo cp ~/xplayeros/rootfs/usr /usr
 fi
 
 echo "
