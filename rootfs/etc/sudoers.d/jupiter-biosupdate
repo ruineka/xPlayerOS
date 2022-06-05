@@ -1,1 +1,1 @@
-ALL ALL=(ALL) NOPASSWD: /usr/games/steam /usr/bin/jupiter-biosupdate
+ALL ALL=(ALL) NOPASSWD: /usr/bin/jupiter-biosupdate
