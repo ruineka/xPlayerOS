@@ -60,7 +60,7 @@ Installing gamescope-onexplayer for AMD
 ================================================================="
 
 cd ~/
-git clone -b gamescope-onexplayer https://github.com/ruineka/gamescope-onexplayer.git
+git clone https://github.com/ruineka/gamescope-onexplayer.git
 cd gamescope-onexplayer
 meson build/
 ninja -C build/
