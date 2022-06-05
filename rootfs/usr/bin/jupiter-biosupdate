@@ -1,1 +1,3 @@
-ALL ALL=(ALL) NOPASSWD: /usr/games/steam /usr/bin/jupiter-biosupdate
+#! /bin/bash
+
+exit 0;

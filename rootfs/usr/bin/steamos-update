@@ -1,1 +1,3 @@
-ALL ALL=(ALL) NOPASSWD: /usr/games/steam /usr/bin/steamos-update
+#! /bin/bash
+
+exit 7;
