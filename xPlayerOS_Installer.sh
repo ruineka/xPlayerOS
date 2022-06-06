@@ -12,6 +12,9 @@ EOF
 #We need to get the dependencies to build the projects
 sudo apt install libx11-dev libwayland-dev libxkbcommon-dev cmake meson libxdamage-dev libxrender-dev libxtst-dev libvulkan-dev libxcb-xinput-dev libxcb-composite0-dev libxcb-icccm4-dev libxcb-res0-dev libxcb-util-dev libxcomposite-dev libxxf86vm-dev libxres-dev libdrm-dev wayland-protocols libcap-dev libsdl2-dev libgbm-dev libpixman-1-dev libinput-dev libseat-dev seatd libsystemd-dev glslang-tools software-properties-common steam
 
+#A workaround to a custom header being necessary to build the gamescope with proper touch inputs
+sudo cp ~/xplayeros/custom_headers/drm_mode.h /usr/include/libdrm
+
 ### Mangohud
 echo "
 ==================================================
@@ -78,7 +81,7 @@ Installing gamescope for Intel using gamescope-onexplayer-intel
 ================================================================="
 
 cd ~/
-git clone -b gamescope-onexplayer-intel https://github.com/ruineka/gamescope-onexplayer.git
+git clone -b gamescope-onexplayer-touchscreenfix https://github.com/ruineka/gamescope-onexplayer.git
 cd gamescope-onexplayer
 meson build/
 ninja -C build/
