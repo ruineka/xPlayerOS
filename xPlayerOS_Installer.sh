@@ -102,6 +102,7 @@ sudo rsync -r ~/xplayeros/rootfs/ /
 sudo chmod 777 /usr/bin/jupiter-biosupdate
 sudo chmod 777 /usr/bin/steamos-update
 sudo chmod 777 /usr/bin/steamos-session-select
+sudo chmod 777 /usr/bin/desktop-handler
 
 #Steam needs sudo permissions for some tasks
 sudo cp ~/xplayeros/rootfs/etc/sudoers.d/brightness_control /etc/sudoers.d
