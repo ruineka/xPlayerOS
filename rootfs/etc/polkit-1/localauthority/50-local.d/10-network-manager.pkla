@@ -1,0 +1,6 @@
+[Let all users modify system settings for network]
+Identity=unix-user:*
+Action=org.freedesktop.NetworkManager.settings.modify.system
+ResultAny=no
+ResultInactive=no
+ResultActive=yes

@@ -1,29 +1,27 @@
 # xPlayerOS
-Pop OS 22.04 LTS OneXplayer Install Script
+Pop OS 22.04 OneXplayer helper script
 
-Welcome to the xPlayerOS script created for fun that is tested to be working on Pop OS 22.04 LTS.
+Welcome to the xPlayerOS script created for fun that is tested to be working on Pop OS 22.04.
 
 Install instructions
 
-`git clone https://github.com/ruineka/xplayeros.git`\
-`cd xplayeros`\
-`./xPlayerOS_Installer.sh deckui gamescope`\
-The possible parameters for this script are `deckui` `gamescope` and `mangohud`
+`git clone -b xplayeros-testing https://github.com/ruineka/xplayeros.git` \
+`cd xplayeros` \
+`./xPlayerOS_Installer.sh`
 
-After rebooting open the terminal with `Super + T`\
-\
-type in `gamescope -e -f -- steam -gamepadui -steamos3 -steampal -steamdeck`
+Open up Switch To Gamemode a total of 3 times to get it fully configured.
 
+The first time you'll see the desktop update screen.\
+The second you'll see the SteamOS update interface\
+The third time it'll finish up and open the Deck UI
 
-if you get a bad descriptor error attempt again, for some reason I have issues with this once in a while and with a little play it will eventually work.\
-\
-if you get a failed update install error I'm not entirely sure what the fix is because it seems to be random, but on a fresh install of Pop 22.04 running my script I rebooted and changed the owner and group of files `/usr/bin/steamos-update` and `/usr/bin/jupiter-biosupdate` to `nobody` and `nogroup` and when I launched steam using the gamescope command above it worked as expected. If anyone has any idea as to the cause of this let me know!\
-\
-For any error that comes up simply rerunning the `gamescope -e -f -- steam -gamepadui -steamos3 -steampal -steamdeck` command a few times seems to sort things out.
 
 Known issues:\
-The touchscreen input is not flipped to match the display yet\
-The SteamOSUI_Enable/Disable scripts need to be updated, I'll get to this later to make a cool transistion similar to how the Steam Deck does it.
+  The touchscreen input is not flipped to match the display yet. (There is a WIP build for Intel that is currently being installed with this script)\
+  The OneXPlayer Intel Mini and AMD mini handhelds haven't been tested so issues are very possible. I don't have these handhelds to test against to make     fixes.\
+  The inputs for the keyboard may be bugged\
+  The cursor for Intel at least is corrupted, is AMD the same?
+
 
 What works:\
 Switch to Desktop mode\
@@ -31,3 +29,12 @@ Steams keyboard with gamepad support, on the Intel OneXplayer (non mini) hold th
 Playing games.
 
 Youtube video showing this working: https://www.youtube.com/watch?v=aRANWssBGsM
+
+My goals:
+
+Support for the gyro used in the mini devices\
+TDP control for the AMD systems\
+Fan control to adjust the speed/noise of the system\
+Seemless desktop usage and Steam OS interface experience\
+Consistant experience with non-steam applications and game integration
+
