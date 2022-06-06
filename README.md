@@ -5,7 +5,7 @@ Welcome to the xPlayerOS script created for fun that is tested to be working on 
 
 Install instructions
 
-`git clone -b xplayeros-testing https://github.com/ruineka/xplayeros.git` \
+`git clone https://github.com/ruineka/xplayeros.git` \
 `cd xplayeros` \
 `./xPlayerOS_Installer.sh`
 
