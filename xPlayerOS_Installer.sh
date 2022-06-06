@@ -133,8 +133,18 @@ echo "
 Wayland has been enabled you can now select this 
 as an option at the login screen.
 =================================================="
+
 #lets enable wayland!
 sudo cp ~/xplayeros/rootfs/etc/gdm3/custom.conf /etc/gdm3
+
+echo "
+==================================================
+We are now adding SteamOS session for a pure 
+GamepadUI experience without the desktop
+=================================================="
+
+#lets enable steamos session
+sudo cp ~/xplayeros/gamescope.desktop /usr/share/xsessions/
 
 #fixing network permissions issue for Steam
 
