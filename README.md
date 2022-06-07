@@ -17,8 +17,8 @@ The third time it'll finish up and open the Deck UI
 
 
 Known issues:\
-  The touchscreen input is not flipped to match the display yet. (There is a WIP build for Intel that is currently being installed with this script)\
-  The OneXPlayer Intel Mini and AMD mini handhelds haven't been tested so issues are very possible. I don't have these handhelds to test against to make     fixes.\
+  The touchscreen acts like a trackpad instead of a proper touch input\
+  It appears as though all the OneXplayers are now usable, this needs further testing..expect issues.\
   The inputs for the keyboard may be bugged\
   The cursor for Intel at least is corrupted, is AMD the same?
 
@@ -29,6 +29,12 @@ Steams keyboard with gamepad support, on the Intel OneXplayer (non mini) hold th
 Playing games.
 
 Youtube video showing this working: https://www.youtube.com/watch?v=aRANWssBGsM
+
+Recommended Pop configurations:\
+Disable automatic resume, screen lock, dim, and blank screen.\
+Enable autologin\
+Go to "Start up Applications" and add a new command to automatically boot steam: Command: `gamescope -e -f --xwayland-count 2 -- steam -gamepadui -steamos3 -steampal -steamdeck` \
+Enjoy the handheld experience!
 
 My goals:
 
