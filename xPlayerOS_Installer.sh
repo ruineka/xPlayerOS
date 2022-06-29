@@ -164,8 +164,8 @@ echo "
 Adding HandyHGCCS
 =================================================="
 
-git clone https://shadowblip/HandyGCCS.git ~/HandyGCCS
-cd ~/HandyGCCS
+git clone https://github.com/ShadowBlip/HandyGCCS.git
+cd HandyGCCS
 sudo apt -y install python3
 sudo apt -y install pip
 pip install evdev
