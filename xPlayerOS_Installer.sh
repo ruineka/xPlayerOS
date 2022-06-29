@@ -159,6 +159,24 @@ Installing the Gamepad Udev
 echo "Installing Gamepad Udev..." ; sleep 1
 sudo cp ~/xplayeros/rootfs/etc/udev/rules.d/99-oxpgamepad.rules /etc/udev/rules.d/
 
+echo "
+==================================================
+Adding HandyHGCCS
+=================================================="
+
+git clone https://shadowblip/HandyGCCS.git ~/HandyGCCS
+cd ~/HandyGCCS
+sudo apt -y install python3
+sudo apt -y install pip
+pip install evdev
+echo "Enabling controller functionality. NEXT users will need to configure the Home button in steam."
+cp -v handycon.py /usr/local/bin/
+cp -v handycon.service /etc/systemd/system/
+cp -v 60-handycon.rules /etc/udev/rules.d/
+udevadm control -R
+systemctl enable handycon && systemctl start handycon
+echo "Installation complete. You should now have additional controller functionality."
+
 
 echo "Done!"
 
