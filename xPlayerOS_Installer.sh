@@ -29,7 +29,6 @@ if [[ ${OPTION} == "y" ]]; then
 echo "Installing Mangohud..." ; sleep 1
 sudo add-apt-repository ppa:flexiondotorg/mangohud
 sudo apt-get update
-sudo apt install mangohud
 
 echo "Getting binaries from the Steamdeck Repo"
 cd ~/xplayeros/rootfs
@@ -42,6 +41,7 @@ curl -o mangohud-0.6.6.1.r113.g316914d-1-x86_64.pkg.tar.xz https://steamdeck-pac
 
 tar -xf mangohud-0.6.6.1.r113.g316914d-1-x86_64.pkg.tar.xz usr/ 
 
+sudo apt install mangohud
 #cleaning up
 rm mangohud-0.6.6.1.r113.g316914d-1-x86_64.pkg.tar.xz
 rm lib32-mangohud-0.6.6.1.r113.g316914d-1-x86_64.pkg.tar.xz

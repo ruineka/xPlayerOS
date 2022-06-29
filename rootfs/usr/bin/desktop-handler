@@ -25,4 +25,4 @@ if [ "$(cat /sys/devices/virtual/dmi/id/product_name)" == "ONE XPLAYER" ]; then
     xrandr --addmode eDP-1 1600x2560
 fi
 
-gamescope -e -f -- steam -gamepadui -steamos3 -steampal -steamdeck
+gamescope -w 1280 -h 800 -W 1280 -H 800 -e -- steam -gamepadui -steamos3 -steampal -steamdeck
