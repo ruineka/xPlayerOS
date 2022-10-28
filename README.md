@@ -5,8 +5,10 @@ Welcome to the xPlayerOS script created for fun that is tested to be working on 
 
 Install instructions
 
-`git clone https://github.com/ruineka/xplayeros.git` \
-`cd xplayeros` \
+run the following commands at the home directory (`~`):
+
+`git clone -b gamescope-onexplayer-legacy https://github.com/ruineka/gamescope-plus` \
+`cd gamescope-plus` \
 `./xPlayerOS_Installer.sh`
 
 Open up Switch To Gamemode a total of 3 times to get it fully configured.
